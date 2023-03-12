@@ -1,0 +1,115 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------- HEADER -------- */
+
+header {
+    background-color: var(--gray-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12.5rem;
+    gap: 1rem;
+    color: var(--blue-300);
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 0;
+}
+
+header h1 span {
+    color: var(--pink-500);
+}
+
+/* -------- CREATE ITEM CONTAINER -------- */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createItemContainer {
+    display: flex;
+    gap: .8rem;
+    margin-top: -1.6rem;
+    align-items: center;
+}
+
+.createItemContainer input {
+    width: 40rem;
+    height: 3.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-700);
+    background: var(--gray-500);
+    color: var(--gray-300);
+    padding: 1rem;
+}
+
+.createItemContainer button {
+    width: 5.6rem;
+    height: 3.1rem;
+    border-radius: 8px;
+    border: none;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .875rem;
+    font-weight: 700;
+    gap: .2rem;
+    background: var(--blue-500);
+    color: var(--gray-100);
+}
+
+/* -------- ITEMS CONTAINER -------- */
+
+.itemsContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 46rem;
+    margin-top: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gray-400);
+}
+
+.itemsContainer p {
+    font-size: .875rem;
+    font-weight: 700;
+    color: var(--blue-300);
+}
+
+.itemsContainer p:last-child {
+    color: var(--pink-300);
+}
+
+.itemsContainer span {
+    padding: .2rem .8rem;
+    color: white;
+    background-color: var(--gray-400);
+    border-radius: 12px;
+}
+
+.emptyItemsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+}
+
+.emptyItemsContainer p {
+    color: var(--gray-300);
+    font-weight: 700;
+}
+
+.emptyItemsContainer p:last-child {
+    font-weight: 400;
+}
+
+.icon {
+    margin-bottom: 1rem;
+}
