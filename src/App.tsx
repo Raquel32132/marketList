@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { ClipboardText, PlusCircle, ShoppingCartSimple, Trash } from 'phosphor-react';
 import { Item } from './components/Item';
 
@@ -12,12 +12,33 @@ interface ListItem {
 
 export function App() {
 
-  const [items, setItems] = useState<ListItem[]>([]);
+  const [items, setItems] = useState<ListItem[]>(() => {
+    const savedItems = localStorage.getItem('market-list-items');
+    return savedItems ? JSON.parse(savedItems).items : [];
+  });
 
   const [newItemText, setNewItemText] = useState('');
   const isNewItemEmpty = newItemText.length === 0;
 
-  const [completedItems, setCompletedItems] = useState(0);
+  const [completedItems, setCompletedItems] = useState(localStorage.completedItems);
+
+  useEffect(() => {
+    const savedItems = localStorage.getItem('market-list-items');
+    if (savedItems) {
+      const parsedItems = JSON.parse(savedItems);
+      if (parsedItems && parsedItems.items) {
+        setItems(parsedItems.items);
+        if (parsedItems.hasOwnProperty('completedItems')) {
+          setCompletedItems(parsedItems.completedItems);
+        }
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('market-list-items', JSON.stringify({ items, completedItems }));
+  }, [items, completedItems]);
+
 
   function handleKeyPress(event: React.KeyboardEvent) {
     if (event.key === 'Enter') {
