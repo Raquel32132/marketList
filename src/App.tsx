@@ -20,7 +20,10 @@ export function App() {
   const [newItemText, setNewItemText] = useState('');
   const isNewItemEmpty = newItemText.length === 0;
 
-  const [completedItems, setCompletedItems] = useState(localStorage.completedItems);
+  const [completedItems, setCompletedItems] = useState(() => {
+    const savedCompletedItems = localStorage.getItem('market-list-items');
+    return savedCompletedItems ? JSON.parse(savedCompletedItems).completedItems : 0;
+  });
 
   useEffect(() => {
     const savedItems = localStorage.getItem('market-list-items');
@@ -28,13 +31,15 @@ export function App() {
       const parsedItems = JSON.parse(savedItems);
       if (parsedItems && parsedItems.items) {
         setItems(parsedItems.items);
-        if (parsedItems.hasOwnProperty('completedItems')) {
-          setCompletedItems(parsedItems.completedItems);
-        }
+      }
+      if (parsedItems && parsedItems.hasOwnProperty('completedItems')) {
+        setCompletedItems(parsedItems.completedItems);
+        const completedItemsString = String(parsedItems.completedItems);
+        localStorage.setItem('market-list-completed-items', completedItemsString);
       }
     }
   }, []);
-
+  
   useEffect(() => {
     localStorage.setItem('market-list-items', JSON.stringify({ items, completedItems }));
   }, [items, completedItems]);
