@@ -1,16 +1,16 @@
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  
+    align-items: center;  
 }
 
 /* -------- HEADER -------- */
 
 header {
-    background-color: var(--gray-700);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 12.5rem;
+    height: 8rem;
     gap: 1rem;
     color: var(--blue-300);
 }
@@ -19,6 +19,7 @@ header h1 {
     font-weight: 700;
     font-size: 2.5rem;
     line-height: 0;
+    cursor: default;
 }
 
 header h1 span {
@@ -31,12 +32,15 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    width: 56rem;
+    padding: 1rem;
+    background-color: var(--gray-700);
 }
 
 .createItemContainer {
     display: flex;
     gap: .8rem;
-    margin-top: -1.6rem;
     align-items: center;
 }
 
@@ -55,7 +59,6 @@ main {
     height: 3.1rem;
     border-radius: 8px;
     border: none;
-    line-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,6 +67,12 @@ main {
     gap: .2rem;
     background: var(--blue-500);
     color: var(--gray-100);
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.createItemContainer button:hover {
+    filter: brightness(1.2);
 }
 
 /* -------- ITEMS CONTAINER -------- */
@@ -72,15 +81,17 @@ main {
     display: flex;
     justify-content: space-between;
     width: 46rem;
-    margin-top: 4rem;
+    margin-top: 3rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--gray-400);
+    
 }
 
 .itemsContainer p {
     font-size: .875rem;
     font-weight: 700;
     color: var(--blue-300);
+    cursor: default;
 }
 
 .itemsContainer p:last-child {
@@ -92,6 +103,19 @@ main {
     color: white;
     background-color: var(--gray-400);
     border-radius: 12px;
+    cursor: default;
+}
+
+.itemsWrapper {
+    overflow-y: scroll;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 25rem;
+}
+
+.itemsWrapper::-webkit-scrollbar{
+    background: transparent;
+    width: 0;
 }
 
 .emptyItemsContainer {
@@ -99,6 +123,7 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 4rem;
+    
 }
 
 .emptyItemsContainer p {
@@ -112,4 +137,35 @@ main {
 
 .icon {
     margin-bottom: 1rem;
+}
+
+/* -------- FOOTER -------- */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 46rem;
+    height: 5rem;
+}
+
+footer button {
+    width: 6.6rem;
+    height: 3.1rem;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .875rem;
+    font-weight: 700;
+    gap: .2rem;
+    background: var(--red-300);
+    color: var(--gray-100);
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+footer button:hover {
+    filter: brightness(1.2);
 }

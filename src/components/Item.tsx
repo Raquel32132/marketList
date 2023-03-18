@@ -13,24 +13,24 @@ interface ItemProps {
 
 export function Item({name, onDeleteItem, isChecked, onCheckedChange}: ItemProps) {
 
+
     function handleDeleteItem() {
         onDeleteItem(name);
     }
 
     function handleToggleChecked() {
-        onCheckedChange(name);
+        onCheckedChange(name)
     }
-
 
     return (
         <div className={styles.container}>
             <div className={styles.checkboxContainer}>
-                <Checkbox.Root className={styles.checkboxWrapper} id="checkbox" checked={isChecked} onCheckedChange={handleToggleChecked}>
+                <Checkbox.Root className={styles.checkboxWrapper} id={name} checked={isChecked} onCheckedChange={handleToggleChecked} >
                     <Checkbox.Indicator className={styles.checkbox}>
                         <Check size={12} color="#FFF" weight="bold"/>
                     </Checkbox.Indicator>
                 </Checkbox.Root>
-                <label htmlFor="checkbox">{name}</label>
+                <label htmlFor={name}>{name}</label>
             </div>
             <button className={styles.deleteItemButton} onClick={handleDeleteItem}>
                 <Trash size={22} color="#808080"/>

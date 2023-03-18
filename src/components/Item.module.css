@@ -8,7 +8,13 @@
     border-radius: 8px;
     padding: 1rem;
     justify-content: space-between;
-    margin: 1rem 0;
+    margin: .6rem 0;
+    transition: background-color 0.5s;
+}
+
+.container:hover {
+    background: var(--gray-400);
+    border: 1px solid var(--gray-300);
 }
 
 .deleteItemButton {
