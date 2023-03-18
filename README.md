@@ -8,6 +8,8 @@ To get started with this project, simply clone or download the repository and ru
 
 You can also access the project through the link: [MarketList](https://velvety-frangipane-1e9491.netlify.app/)
 
+This project was deployed through Netlify
+
 
 ## Features
 - Add new items to the list
