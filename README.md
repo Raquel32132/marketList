@@ -6,7 +6,7 @@ This is a simple Market List application built with React. It allows users to cr
 ## Getting Started
 To get started with this project, simply clone or download the repository and run 'npm install' to install the required dependencies. You can then start the app by running 'npm run dev'.
 
-You can also access the project through the link: [MarketList](https://velvety-frangipane-1e9491.netlify.app/)
+You can also access the project through the link: [MarketList](https://marketlist-project-io.netlify.app/)
 
 This project was deployed through Netlify
 
